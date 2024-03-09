@@ -1,46 +1,47 @@
-import { ReactElement } from "react";
+import { IColumn, IRow } from "../../interfaces/table.interface";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
+import { ReactElement } from "react";
 import Card from "../Card/Card";
 
 interface ITable {
-  data: any[];
-  columns: any[];
-  loading: boolean;
+  rows: IRow[];
+  columns: IColumn[];
+  isLoading: boolean;
 }
 
 export default function Table({
-  data,
+  rows,
   columns,
-  loading,
+  isLoading,
 }: ITable): ReactElement {
   return (
     <Card
-      style={loading ? { backgroundColor: "rgba(0, 0, 0, 0.4)" } : {}}
+      style={isLoading ? { backgroundColor: "rgba(0, 0, 0, 0.4)" } : {}}
       title="DataGrid"
       className="px-0 pb-0"
     >
       <DataTable
-        className={` ${
-          data &&
+        className={`rounded-md ${
+          rows &&
           columns &&
-          !loading &&
-          "animate-fadeIn transition-all duration-500"
+          !isLoading &&
+          "animate__animated animate__fadeIn transition-all duration-500"
         }`}
-        value={data}
+        value={rows}
         paginator
-        loading={loading}
+        paginatorClassName="rounded-md"
+        loading={isLoading}
         responsiveLayout="scroll"
         paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
         rows={20}
         rowHover
       >
-        {columns?.map((col: any, index: number) => {
+        {columns?.map((col, index) => {
           return (
             <Column
-              style={col?.style || {}}
-              className={`animate-fadeIn p-0 ${col?.className}`}
+              className="animate__animated animate__fadeIn p-0"
               key={index}
               field={col.key}
               header={col.header}
