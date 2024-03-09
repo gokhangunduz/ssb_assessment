@@ -587,6 +587,18 @@ video {
     width: 100%;
   }
 
+  .w-7{
+    width: 1.75rem;
+  }
+
+  .cursor-not-allowed{
+    cursor: not-allowed;
+  }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+
   .flex-col{
     flex-direction: column;
   }
@@ -613,6 +625,10 @@ video {
 
   .gap-8{
     gap: 2rem;
+  }
+
+  .gap-3{
+    gap: 0.75rem;
   }
 
   .rounded{
@@ -642,12 +658,34 @@ video {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
+  .bg-slate-300{
+    --tw-bg-opacity: 1;
+    background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+  }
+
+  .bg-slate-200{
+    --tw-bg-opacity: 1;
+    background-color: rgb(226 232 240 / var(--tw-bg-opacity));
+  }
+
   .p-1{
     padding: 0.25rem;
   }
 
   .p-6{
     padding: 1.5rem;
+  }
+
+  .p-0{
+    padding: 0px;
+  }
+
+  .p-2{
+    padding: 0.5rem;
+  }
+
+  .p-4{
+    padding: 1rem;
   }
 
   .\!px-96{
@@ -670,6 +708,33 @@ video {
     padding-bottom: 2rem;
   }
 
+  .py-1{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  .px-1{
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+
+  .px-0{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .pb-8{
+    padding-bottom: 2rem;
+  }
+
+  .pt-1{
+    padding-top: 0.25rem;
+  }
+
+  .pb-0{
+    padding-bottom: 0px;
+  }
+
   .text-center{
     text-align: center;
   }
@@ -684,12 +749,21 @@ video {
     line-height: 1.75rem;
   }
 
+  .text-base{
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .font-semibold{
     font-weight: 600;
   }
 
   .font-bold{
     font-weight: 700;
+  }
+
+  .font-medium{
+    font-weight: 500;
   }
 
   .text-red-500{
@@ -706,5 +780,19 @@ video {
     --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  }
+
+  .filter{
+    filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+  }
+
+  .transition-all{
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+
+  .duration-500{
+    transition-duration: 500ms;
   }
 }

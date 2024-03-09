@@ -6,11 +6,14 @@ import { PrimeReactProvider } from "primereact/api";
 import "primeicons/primeicons.css";
 import { Provider } from "react-redux";
 import { store } from "./apps/store";
+import "animate.css";
+import { Toaster } from "sonner";
 
 export default function App(): ReactElement {
   return (
     <Provider store={store}>
       <PrimeReactProvider>
+        <Toaster richColors position="top-center" />
         <MainLayout>
           <AppLayout />
         </MainLayout>
