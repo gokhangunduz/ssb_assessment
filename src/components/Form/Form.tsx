@@ -51,33 +51,39 @@ export default function Form(): ReactElement {
         className="flex flex-col gap-4 items-center justify-between"
         onSubmit={formSubmit(handleOnSubmitForm)}
       >
-        <InputText
-          label="Code"
-          {...register("code", handleGetInputValidation("code"))}
-          error={formState.errors.code?.message}
-        />
+        <div className="flex gap-6">
+          <InputText
+            label="Code"
+            {...register("code", handleGetInputValidation("code"))}
+            error={formState.errors.code?.message}
+          />
 
-        <InputText
-          label="Name"
-          {...register("name", handleGetInputValidation("name"))}
-          error={formState.errors.name?.message}
-        />
+          <InputText
+            label="Name"
+            {...register("name", handleGetInputValidation("name"))}
+            error={formState.errors.name?.message}
+          />
 
-        <InputDate
-          label="Date"
-          {...register("date", handleGetInputValidation("date"))}
-          error={formState.errors.date?.message}
-        />
+          <InputDate
+            label="Date"
+            {...register("date", handleGetInputValidation("date"))}
+            error={formState.errors.date?.message}
+          />
 
-        <InputCheckbox
-          label="Updatable"
-          {...register("isUpdatable", handleGetInputValidation("isUpdatable"))}
-          error={formState.errors.isUpdatable?.message}
-        />
+          <InputCheckbox
+            label="Updatable"
+            {...register(
+              "isUpdatable",
+              handleGetInputValidation("isUpdatable")
+            )}
+            error={formState.errors.isUpdatable?.message}
+          />
+        </div>
 
         <div className="flex items-center gap-4">
           <Button
             onClick={handleOnResetForm}
+            outlined
             label="Clean"
             type="reset"
             icon="pi pi-refresh"

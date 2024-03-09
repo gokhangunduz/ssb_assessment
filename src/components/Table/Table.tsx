@@ -19,7 +19,7 @@ export default function Table({
     <Card
       style={isLoading ? { backgroundColor: "rgba(0, 0, 0, 0.4)" } : {}}
       title="DataGrid"
-      className="px-0 pb-0"
+      className="p-0 pt-8"
     >
       <DataTable
         className={`rounded-md ${
@@ -41,7 +41,7 @@ export default function Table({
         {columns?.map((col, index) => {
           return (
             <Column
-              className="animate__animated animate__fadeIn p-0"
+              className="animate__animated animate__fadeIn p-0 h-16"
               key={index}
               field={col.key}
               header={col.header}

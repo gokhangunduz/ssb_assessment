@@ -42,6 +42,7 @@ export default function DataGrid(): ReactElement {
       {
         key: "code",
         header: "Code",
+        align: "center",
         body: ({
           code,
         }: {
@@ -59,6 +60,7 @@ export default function DataGrid(): ReactElement {
       {
         key: "name",
         header: "Name",
+        align: "center",
         body: ({
           name,
         }: {
@@ -76,6 +78,8 @@ export default function DataGrid(): ReactElement {
       {
         key: "date",
         header: "Date",
+        align: "center",
+
         body: ({
           date,
         }: {
@@ -93,7 +97,7 @@ export default function DataGrid(): ReactElement {
       {
         key: "action",
         header: "Action",
-        align: "right",
+        align: "center",
         body: ({
           action,
         }: {

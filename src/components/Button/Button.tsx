@@ -6,6 +6,8 @@ interface IButton {
   type?: "button" | "submit" | "reset";
   icon?: string;
   severity?: "secondary" | "success" | "info" | "warning" | "danger" | "help";
+  outlined?: boolean;
+  className?: string;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -14,6 +16,8 @@ export default function Button({
   type,
   icon,
   severity,
+  outlined,
+  className,
   onClick,
 }: IButton): ReactElement {
   return (
@@ -23,8 +27,9 @@ export default function Button({
       label={label}
       icon={icon}
       size="small"
-      outlined={type === "reset" ? true : false}
+      outlined={outlined}
       severity={severity}
+      className={className}
     />
   );
 }

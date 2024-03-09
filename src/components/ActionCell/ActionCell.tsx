@@ -31,7 +31,7 @@ export default function ActionCell({
   }
   return (
     <div
-      className={`flex justify-end gap-4 p-1.5 ${
+      className={`flex justify-center gap-4 p-1.5 h-full w-full ${
         !isUpdatable && "bg-slate-100"
       }`}
     >
@@ -40,12 +40,16 @@ export default function ActionCell({
         onClick={handleOnEdit}
         icon="pi pi-pencil"
         severity="info"
+        outlined
+        className="h-10 w-10"
       />
       <Button
         type="button"
         onClick={handleOnDelete}
         icon="pi pi-trash"
         severity="danger"
+        outlined
+        className="h-10 w-10"
       />
     </div>
   );

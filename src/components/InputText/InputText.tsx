@@ -19,7 +19,7 @@ const InputText = forwardRef<HTMLInputElement, IInputText>((props, ref) => {
         {props.label}:
         <input
           type="text"
-          className="border border-slate-200 p-1 rounded"
+          className="border border-slate-200 p-1 rounded w-48"
           {...props}
           ref={ref}
         />
