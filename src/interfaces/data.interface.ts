@@ -4,3 +4,5 @@ export interface IData {
   date: string;
   isUpdatable: boolean;
 }
+
+export type IDataKeys = keyof IData;

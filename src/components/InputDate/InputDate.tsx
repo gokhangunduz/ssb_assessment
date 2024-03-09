@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 
-interface IInputText {
+interface IInputDate {
   label?: string;
   name?: string;
   required?: boolean;
@@ -12,13 +12,13 @@ interface IInputText {
   error?: string;
 }
 
-const InputText = forwardRef<HTMLInputElement, IInputText>((props, ref) => {
+const InputDate = forwardRef<HTMLInputElement, IInputDate>((props, ref) => {
   return (
     <div className="flex flex-col gap-2 w-fit">
       <label className="flex gap-2 items-center">
         {props.label}:
         <input
-          type="text"
+          type="date"
           className="border border-slate-200 p-1 rounded"
           {...props}
           ref={ref}
@@ -33,4 +33,4 @@ const InputText = forwardRef<HTMLInputElement, IInputText>((props, ref) => {
   );
 });
 
-export default InputText;
+export default InputDate;

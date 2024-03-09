@@ -1,60 +1,67 @@
-import { ReactElement, useEffect } from "react";
+import { ReactElement } from "react";
 import Card from "../Card/Card";
 import { useForm } from "react-hook-form";
 import { IData } from "../../interfaces/data.interface";
 import { DevTool } from "@hookform/devtools";
 import InputText from "../InputText/InputText";
+import { handleGetInputValidation } from "../../validations/form.validation";
+import { formInitialValues } from "../../constant/form.constant";
+import InputCheckbox from "../InputCheckbox/InputCheckbox";
+import InputDate from "../InputDate/InputDate";
+import Button from "../Button/Button";
+import { useAppDispatch } from "../../hooks/redux.hook";
+import { reducerAddData } from "../../features/dataSlice";
 
 export default function Form(): ReactElement {
-  const { register, formState, control, handleSubmit } = useForm<IData>();
+  const {
+    register,
+    formState,
+    control,
+    handleSubmit: formSubmit,
+  } = useForm<IData>({
+    defaultValues: formInitialValues,
+  });
 
-  useEffect(() => {
-    console.log(formState.touchedFields);
-  }, [formState]);
+  const dispatch = useAppDispatch();
+
+  function handleOnSubmitForm(data: IData) {
+    console.log(data);
+
+    dispatch(reducerAddData(data));
+  }
 
   return (
-    <Card>
+    <Card title="Form">
       <form
-        onSubmit={handleSubmit((data) => {
-          console.log(data);
-        })}
+        className="flex items-center gap-4"
+        onSubmit={formSubmit(handleOnSubmitForm)}
       >
         <InputText
-          type="text"
           label="Code"
-          {...register("code", {
-            required: "This field is required.",
-            pattern: {
-              value: /^(?=[a-zA-Z]{2}\d{3}$)[a-zA-Z\d]{5}$/,
-              message: "This field must be in the format XX123.",
-            },
-            minLength: {
-              value: 5,
-              message: "This field must be at least 5 characters.",
-            },
-            maxLength: {
-              value: 5,
-              message: "This field cannot be longer than 5 characters.",
-            },
-          })}
-          touched={formState.touchedFields.code}
+          {...register("code", handleGetInputValidation("code"))}
           error={formState.errors.code?.message}
         />
-        <input
-          type="text"
-          {...register("name", {
-            required: "This field is required.",
-            minLength: {
-              value: 3,
-              message: "This field must be at least 3 characters.",
-            },
-            maxLength: {
-              value: 12,
-              message: "This field cannot be longer than 12 characters.",
-            },
-          })}
+
+        <InputText
+          label="Name"
+          {...register("name", handleGetInputValidation("name"))}
+          error={formState.errors.name?.message}
         />
-        <button type="submit">Submit</button>
+
+        <InputDate
+          label="Date"
+          {...register("date", handleGetInputValidation("date"))}
+          error={formState.errors.date?.message}
+        />
+
+        <InputCheckbox
+          label="Updatable"
+          {...register("isUpdatable", handleGetInputValidation("isUpdatable"))}
+          error={formState.errors.isUpdatable?.message}
+        />
+
+        <Button label="Reset" type="reset" />
+        <Button label="Submit" type="submit" />
       </form>
       <DevTool control={control} />
     </Card>

@@ -4,7 +4,7 @@ import Table from "../components/Table/Table";
 
 export default function AppLayout(): ReactElement {
   return (
-    <div className="flex flex-col w-full py-8 px-96 gap-8">
+    <div className="flex flex-col w-full py-8 px-4 !!!!px-96 gap-8">
       <Form />
       <Table />
     </div>
