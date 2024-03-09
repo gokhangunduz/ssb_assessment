@@ -15,7 +15,7 @@ interface IInputDate {
 const InputDate = forwardRef<HTMLInputElement, IInputDate>((props, ref) => {
   return (
     <div className="flex flex-col gap-2 w-fit">
-      <label className="flex gap-2 items-center">
+      <label className="flex gap-2 items-center text-slate-600 font-medium">
         {props.label}:
         <input
           type="date"

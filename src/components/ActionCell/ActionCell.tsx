@@ -31,7 +31,7 @@ export default function ActionCell({
   }
   return (
     <div
-      className={`flex justify-center gap-4 p-1.5 h-full w-full ${
+      className={`flex items-center justify-center gap-4 p-1.5 h-full w-full ${
         !isUpdatable && "bg-slate-100"
       }`}
     >

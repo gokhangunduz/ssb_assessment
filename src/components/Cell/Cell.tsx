@@ -27,7 +27,7 @@ export default function Cell({
   return (
     <div
       onClick={handleOnClick}
-      className={`flex items-center justify-center h-full w-full ${
+      className={`flex items-center justify-center h-full w-full text-slate-500 ${
         isUpdatable ? "cursor-pointer" : "cursor-not-allowed bg-slate-100"
       }`}
     >

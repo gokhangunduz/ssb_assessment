@@ -42,6 +42,7 @@ export default function Table({
           return (
             <Column
               className="animate__animated animate__fadeIn p-0 h-16"
+              headerClassName="text-slate-600 font-semibold"
               key={index}
               field={col.key}
               header={col.header}
