@@ -1,14 +1,14 @@
-import { ReactElement } from "react";
-import Card from "../Card/Card";
-import { useForm } from "react-hook-form";
-import { IData } from "../../interfaces/data.interface";
-import InputText from "../InputText/InputText";
 import { handleGetInputValidation } from "../../validations/form.validation";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux.hook";
 import { formInitialValues } from "../../constant/form.constant";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
+import { IData } from "../../interfaces/data.interface";
+import InputText from "../InputText/InputText";
 import InputDate from "../InputDate/InputDate";
+import { useForm } from "react-hook-form";
 import Button from "../Button/Button";
-import { useAppDispatch, useAppSelector } from "../../hooks/redux.hook";
+import { ReactElement } from "react";
+import Card from "../Card/Card";
 import {
   reducerAddData,
   reducerRemoveStageDataIndex,
@@ -28,6 +28,7 @@ export default function Form(): ReactElement {
   } = useForm<IData>({
     defaultValues: formInitialValues,
     values: stageDataIndex !== null ? datas[stageDataIndex] : formInitialValues,
+    reValidateMode: "onChange",
   });
 
   const dispatch = useAppDispatch();
@@ -50,38 +51,48 @@ export default function Form(): ReactElement {
   return (
     <Card title="Form">
       <form
-        className="flex flex-col gap-4 items-center justify-between"
+        className="flex flex-col gap-14 items-center justify-between"
         onSubmit={formSubmit(handleOnSubmitForm)}
       >
-        <div className="flex gap-6">
-          <InputText
-            label="Code"
-            {...register("code", handleGetInputValidation("code"))}
-            error={formState.errors.code?.message}
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
+          <div className="col-span-1">
+            <InputText
+              label="Code"
+              {...register("code", handleGetInputValidation("code"))}
+              tip="Code"
+              error={formState.errors.code?.message}
+            />
+          </div>
 
-          <InputText
-            label="Name"
-            {...register("name", handleGetInputValidation("name"))}
-            error={formState.errors.name?.message}
-          />
+          <div className="col-span-1">
+            <InputText
+              label="Name"
+              {...register("name", handleGetInputValidation("name"))}
+              tip="Name"
+              error={formState.errors.name?.message}
+            />
+          </div>
 
-          <InputDate
-            label="Date"
-            {...register("date", handleGetInputValidation("date"))}
-            error={formState.errors.date?.message}
-          />
+          <div className="col-span-1">
+            <InputDate
+              label="Date"
+              {...register("date", handleGetInputValidation("date"))}
+              error={formState.errors.date?.message}
+            />
+          </div>
 
-          <InputCheckbox
-            label="Is Updatable"
-            checked={formValues("isUpdatable")}
-            onChange={(e) =>
-              formSetValue("isUpdatable", e.value, {
-                shouldTouch: true,
-                shouldValidate: true,
-              })
-            }
-          />
+          <div className="col-span-1">
+            <InputCheckbox
+              label="Is Updatable"
+              checked={formValues("isUpdatable")}
+              onChange={(e) =>
+                formSetValue("isUpdatable", e.value, {
+                  shouldTouch: true,
+                  shouldValidate: true,
+                })
+              }
+            />
+          </div>
         </div>
 
         <div className="flex items-center gap-4">
@@ -93,7 +104,7 @@ export default function Form(): ReactElement {
             icon="pi pi-refresh"
           />
           <Button
-            label={stageDataIndex !== null ? "Update" : "Submit"}
+            label={stageDataIndex !== null ? "Update" : "Save"}
             type="submit"
             icon={stageDataIndex !== null ? "pi pi-check" : "pi pi-save"}
           />

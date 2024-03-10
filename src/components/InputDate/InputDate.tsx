@@ -1,4 +1,6 @@
 import { forwardRef } from "react";
+import InputLabel from "../InputLabel/InputLabel";
+import InputError from "../InputError/InputError";
 
 interface IInputDate {
   label?: string;
@@ -14,21 +16,18 @@ interface IInputDate {
 
 const InputDate = forwardRef<HTMLInputElement, IInputDate>((props, ref) => {
   return (
-    <div className="flex flex-col gap-2 w-fit">
-      <label className="flex gap-2 items-center text-slate-600 font-medium">
-        {props.label}:
+    <div className="flex flex-col gap-2 w-fit relative">
+      <InputLabel label={props.label}>
         <input
           type="date"
-          className="border border-slate-200 p-1 rounded w-36"
+          className={`border border-slate-300 p-1 rounded scale-90 w-44 px-10 ${
+            props.error && "!border-red-500"
+          }`}
           {...props}
           ref={ref}
         />
-      </label>
-      <p className="text-xs mx-auto">
-        {props.error ? (
-          <span className="text-red-500">{props.error}</span>
-        ) : null}
-      </p>
+      </InputLabel>
+      <InputError error={props.error} />
     </div>
   );
 });

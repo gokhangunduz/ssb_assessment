@@ -1,5 +1,7 @@
 import { forwardRef } from "react";
 import { InputText as InputTextPR } from "primereact/inputtext";
+import InputError from "../InputError/InputError";
+import InputLabel from "../InputLabel/InputLabel";
 
 interface IInputText {
   label?: string;
@@ -12,26 +14,23 @@ interface IInputText {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
+  tip?: string;
 }
 
 const InputText = forwardRef<HTMLInputElement, IInputText>((props, ref) => {
   return (
-    <div className="flex flex-col gap-2 w-fit">
-      <label className="flex gap-2 items-center text-slate-600 font-medium">
-        {props.label}:
+    <div className="flex flex-col gap-2 w-fit relative">
+      <InputLabel label={props.label}>
         <InputTextPR
+          title={props.tip}
           type="text"
-          className="border border-slate-200 p-1 rounded w-44"
+          className={`p-1 rounded w-44 ${props.error && "p-invalid"}`}
           {...props}
           ref={ref}
           placeholder={props.placeholder}
         />
-      </label>
-      <p className="text-xs mx-auto">
-        {props.error ? (
-          <span className="text-red-500">{props.error}</span>
-        ) : null}
-      </p>
+      </InputLabel>
+      <InputError error={props.error} />
     </div>
   );
 });
