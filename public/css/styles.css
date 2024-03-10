@@ -552,29 +552,12 @@ video {
     bottom: -1.5rem;
   }
 
-  .left-20{
-    left: 5rem;
-  }
-
-  .left-2{
-    left: 0.5rem;
-  }
-
-  .left-4{
-    left: 1rem;
-  }
-
   .left-6{
     left: 1.5rem;
   }
 
   .col-span-1{
     grid-column: span 1 / span 1;
-  }
-
-  .mx-auto{
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .mb-6{
@@ -609,6 +592,10 @@ video {
     width: 2.5rem;
   }
 
+  .w-40{
+    width: 10rem;
+  }
+
   .w-44{
     width: 11rem;
   }
@@ -621,26 +608,6 @@ video {
 
   .w-full{
     width: 100%;
-  }
-
-  .w-24{
-    width: 6rem;
-  }
-
-  .w-40{
-    width: 10rem;
-  }
-
-  .w-52{
-    width: 13rem;
-  }
-
-  .w-48{
-    width: 12rem;
-  }
-
-  .w-36{
-    width: 9rem;
   }
 
   .scale-90{
@@ -740,6 +707,10 @@ video {
     background-color: rgb(255 255 255 / var(--tw-bg-opacity));
   }
 
+  .\!p-0{
+    padding: 0px !important;
+  }
+
   .p-0{
     padding: 0px;
   }
@@ -756,15 +727,6 @@ video {
     padding: 1.5rem;
   }
 
-  .\!p-0{
-    padding: 0px !important;
-  }
-
-  .px-10{
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
   .px-2{
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -773,25 +735,6 @@ video {
   .py-8{
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .px-9{
-    padding-left: 2.25rem;
-    padding-right: 2.25rem;
-  }
-
-  .px-6{
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .px-1{
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
-
-  .pt-8{
-    padding-top: 2rem;
   }
 
   .\!pt-8{
@@ -856,6 +799,10 @@ video {
   }
 }
 
+tr[data-pc-section="emptymessage"] td {
+  text-align: center;
+}
+
 @media (min-width: 640px){
   .sm\:px-4{
     padding-left: 1rem;
@@ -875,10 +822,6 @@ video {
 }
 
 @media (min-width: 1024px){
-  .lg\:grid-cols-2{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .lg\:px-16{
     padding-left: 4rem;
     padding-right: 4rem;
@@ -886,10 +829,6 @@ video {
 }
 
 @media (min-width: 1280px){
-  .xl\:grid-cols-4{
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .xl\:grid-cols-2{
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

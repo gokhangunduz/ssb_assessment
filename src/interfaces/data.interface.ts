@@ -5,4 +5,6 @@ export interface IData {
   isUpdatable: boolean;
 }
 
+export type IStageDataIndex = number | null;
+
 export type IDataKeys = keyof IData;

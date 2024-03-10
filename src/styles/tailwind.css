@@ -8,3 +8,7 @@
   @tailwind components;
   @tailwind utilities;
 }
+
+tr[data-pc-section="emptymessage"] td {
+  text-align: center;
+}

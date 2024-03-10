@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IData } from "../interfaces/data.interface";
+import { IData, IStageDataIndex } from "../interfaces/data.interface";
 import { toast } from "sonner";
 
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
     datas: [] as IData[],
-    stageDataIndex: null as number | null,
+    stageDataIndex: null as IStageDataIndex,
   },
   reducers: {
     reducerAddData: (state, action) => {
@@ -41,4 +41,5 @@ export const {
   reducerAddStageDataIndex,
   reducerRemoveStageDataIndex,
 } = counterSlice.actions;
+
 export default counterSlice.reducer;
