@@ -21,6 +21,8 @@ export default function Form(): ReactElement {
   const {
     register,
     formState,
+    getValues: formValues,
+    setValue: formSetValue,
     handleSubmit: formSubmit,
     reset: formReset,
   } = useForm<IData>({
@@ -71,12 +73,14 @@ export default function Form(): ReactElement {
           />
 
           <InputCheckbox
-            label="Updatable"
-            {...register(
-              "isUpdatable",
-              handleGetInputValidation("isUpdatable")
-            )}
-            error={formState.errors.isUpdatable?.message}
+            label="Is Updatable"
+            checked={formValues("isUpdatable")}
+            onChange={(e) =>
+              formSetValue("isUpdatable", e.value, {
+                shouldTouch: true,
+                shouldValidate: true,
+              })
+            }
           />
         </div>
 

@@ -19,7 +19,7 @@ const InputDate = forwardRef<HTMLInputElement, IInputDate>((props, ref) => {
         {props.label}:
         <input
           type="date"
-          className="border border-slate-200 p-1 rounded"
+          className="border border-slate-200 p-1 rounded w-36"
           {...props}
           ref={ref}
         />
