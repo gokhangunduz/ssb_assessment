@@ -12,6 +12,7 @@ interface IInputDate {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
   error?: string;
+  tip?: string;
 }
 
 const InputDate = forwardRef<HTMLInputElement, IInputDate>((props, ref) => {
@@ -20,11 +21,12 @@ const InputDate = forwardRef<HTMLInputElement, IInputDate>((props, ref) => {
       <InputLabel label={props.label}>
         <input
           type="date"
-          className={`border border-slate-300 p-1 rounded scale-90 w-44 px-10 ${
+          className={`border border-slate-300 p-1 rounded scale-90 w-44 ${
             props.error && "!border-red-500"
           }`}
           {...props}
           ref={ref}
+          title={props.tip}
         />
       </InputLabel>
       <InputError error={props.error} />

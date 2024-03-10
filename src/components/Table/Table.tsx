@@ -19,7 +19,7 @@ export default function Table({
     <Card
       style={isLoading ? { backgroundColor: "rgba(0, 0, 0, 0.4)" } : {}}
       title="DataGrid"
-      className="p-0 pt-8"
+      className="!p-0 !pt-8"
     >
       <DataTable
         className={`rounded-md ${
@@ -35,7 +35,7 @@ export default function Table({
         responsiveLayout="scroll"
         paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"
-        rows={20}
+        rows={5}
         rowHover
       >
         {columns?.map((col, index) => {

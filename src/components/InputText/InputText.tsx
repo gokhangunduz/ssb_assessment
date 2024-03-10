@@ -24,7 +24,7 @@ const InputText = forwardRef<HTMLInputElement, IInputText>((props, ref) => {
         <InputTextPR
           title={props.tip}
           type="text"
-          className={`p-1 rounded w-44 ${props.error && "p-invalid"}`}
+          className={`p-1 rounded w-40 ${props.error && "p-invalid"}`}
           {...props}
           ref={ref}
           placeholder={props.placeholder}

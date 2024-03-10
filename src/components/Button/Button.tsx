@@ -8,6 +8,7 @@ interface IButton {
   severity?: "secondary" | "success" | "info" | "warning" | "danger" | "help";
   outlined?: boolean;
   className?: string;
+  disabled?: boolean;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
@@ -18,6 +19,7 @@ export default function Button({
   severity,
   outlined,
   className,
+  disabled,
   onClick,
 }: IButton): ReactElement {
   return (
@@ -30,6 +32,7 @@ export default function Button({
       outlined={outlined}
       severity={severity}
       className={className}
+      disabled={disabled}
     />
   );
 }

@@ -4,7 +4,7 @@ import { formInitialValues } from "../../constant/form.constant";
 import InputCheckbox from "../InputCheckbox/InputCheckbox";
 import { IData } from "../../interfaces/data.interface";
 import InputText from "../InputText/InputText";
-import InputDate from "../InputDate/InputDate";
+// import InputDate from "../InputDate/InputDate";
 import { useForm } from "react-hook-form";
 import Button from "../Button/Button";
 import { ReactElement } from "react";
@@ -54,12 +54,12 @@ export default function Form(): ReactElement {
         className="flex flex-col gap-14 items-center justify-between"
         onSubmit={formSubmit(handleOnSubmitForm)}
       >
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-10">
           <div className="col-span-1">
             <InputText
               label="Code"
               {...register("code", handleGetInputValidation("code"))}
-              tip="Code"
+              tip="This field required and must be in XX123 format. (e.g. AB123 or zy456)"
               error={formState.errors.code?.message}
             />
           </div>
@@ -68,18 +68,27 @@ export default function Form(): ReactElement {
             <InputText
               label="Name"
               {...register("name", handleGetInputValidation("name"))}
-              tip="Name"
+              tip="This field required and cannot exceed 12 characters."
               error={formState.errors.name?.message}
             />
           </div>
 
           <div className="col-span-1">
-            <InputDate
+            <InputText
               label="Date"
               {...register("date", handleGetInputValidation("date"))}
+              tip="This field required and must be in DD/MM/YYYY format."
               error={formState.errors.date?.message}
             />
           </div>
+          {/* <div className="col-span-1">
+            <InputDate
+              label="Date"
+              {...register("date", handleGetInputValidation("date"))}
+              tip="This field required and must be in DD/MM/YYYY format."
+              error={formState.errors.date?.message}
+            />
+          </div> */}
 
           <div className="col-span-1">
             <InputCheckbox
@@ -107,6 +116,7 @@ export default function Form(): ReactElement {
             label={stageDataIndex !== null ? "Update" : "Save"}
             type="submit"
             icon={stageDataIndex !== null ? "pi pi-check" : "pi pi-save"}
+            disabled={formState.isSubmitting}
           />
         </div>
       </form>
