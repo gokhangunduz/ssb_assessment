@@ -10,5 +10,5 @@
 }
 
 tr[data-pc-section="emptymessage"] td {
-  text-align: center;
+  @apply text-center text-sm;
 }

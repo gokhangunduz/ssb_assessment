@@ -799,8 +799,10 @@ video {
   }
 }
 
-tr[data-pc-section="emptymessage"] td {
+tr[data-pc-section="emptymessage"] td{
   text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
 }
 
 @media (min-width: 640px){
