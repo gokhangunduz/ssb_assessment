@@ -20,7 +20,7 @@ export default function Cell({
     if (isUpdatable) {
       dispatch(reducerAddStageDataIndex(index));
     } else {
-      toast.warning("This cell is not updatable.");
+      toast.warning("This dataset is not updatable.");
     }
   }
 
